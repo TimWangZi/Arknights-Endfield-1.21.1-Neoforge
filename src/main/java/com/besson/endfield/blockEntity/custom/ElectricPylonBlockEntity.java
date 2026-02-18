@@ -61,28 +61,21 @@ public class ElectricPylonBlockEntity extends BlockEntity implements GeoBlockEnt
         // 移除所有方块遍历、节点检测、状态同步代码
     }
 
-    // 2. 按 NeoForged 官方规范实现 Tick 方法（核心修复）
-    // 需在对应的 Block 类中绑定该 Tick 方法（见下方补充）
+    // 将供电检测逻辑写到了Tick中
     public static void tick(Level level, BlockPos pos, BlockState state, ElectricPylonBlockEntity pylon) {
-        // 仅服务端执行（避免客户端无效计算）
         if (level.isClientSide()) return;
 
-        // 每20刻（1秒）执行一次，平衡性能与逻辑响应
+        // 20tk检测一次是否有电
         if (level.getGameTime() % TICK_INTERVAL != 0) return;
 
-        // 首次 Tick：检测关联节点（替代原 setLevel() 中的节点检测）
         if (!pylon.firstNodeDetectDone) {
             pylon.detectConnectedNode(level, pos);
             pylon.firstNodeDetectDone = true;
             return;
         }
-
-        // 常规 Tick：刷新节点状态（若节点失效则重新检测）
         if (pylon.connectedNode == null || level.getBlockEntity(pylon.connectedNode) == null) {
             pylon.detectConnectedNode(level, pos);
         }
-
-        // 电力供需逻辑已在 PowerNetworkManager 中通过回调触发，无需重复执行
     }
 
     // 3. 独立的节点检测方法（迁移自 setLevel()）
@@ -107,7 +100,7 @@ public class ElectricPylonBlockEntity extends BlockEntity implements GeoBlockEnt
 
         // 更新节点并同步状态
         this.connectedNode = closest;
-        this.setChanged(); // 官方推荐：无参 setChanged()，自动关联 level/pos/state
+        this.setChanged();
         level.sendBlockUpdated(pos, this.getBlockState(), this.getBlockState(), 3);
     }
 
@@ -150,7 +143,6 @@ public class ElectricPylonBlockEntity extends BlockEntity implements GeoBlockEnt
         return totalDemand;
     }
 
-    // 以下为原有代码，无需修改
     @Override
     public void setRemoved() {
         if (level instanceof ServerLevel serverLevel) {
