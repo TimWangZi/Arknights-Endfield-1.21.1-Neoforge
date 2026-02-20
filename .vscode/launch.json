@@ -1,0 +1,93 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Client",
+      "presentation": {
+        "group": "Mod Development - Arknights-Endfield-1.21.1-Neoforge",
+        "order": 0
+      },
+      "projectName": "Arknights-Endfield-1.21.1-Neoforge",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003darknights_endfield%%F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Data",
+      "presentation": {
+        "group": "Mod Development - Arknights-Endfield-1.21.1-Neoforge",
+        "order": 1
+      },
+      "projectName": "Arknights-Endfield-1.21.1-Neoforge",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\build\\moddev\\dataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\build\\moddev\\dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003darknights_endfield%%F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "GameTestServer",
+      "presentation": {
+        "group": "Mod Development - Arknights-Endfield-1.21.1-Neoforge",
+        "order": 2
+      },
+      "projectName": "Arknights-Endfield-1.21.1-Neoforge",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\build\\moddev\\gameTestServerRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\build\\moddev\\gameTestServerRunVmArgs.txt",
+        "-Dfml.modFolders\u003darknights_endfield%%F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Server",
+      "presentation": {
+        "group": "Mod Development - Arknights-Endfield-1.21.1-Neoforge",
+        "order": 3
+      },
+      "projectName": "Arknights-Endfield-1.21.1-Neoforge",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003darknights_endfield%%F:\\code\\Arknights-Endfield-1.21.1-Neoforge\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}
